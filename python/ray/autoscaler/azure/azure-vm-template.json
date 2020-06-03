@@ -50,7 +50,7 @@
                 "description": "The size of the VM"
             }
         },
-        "vmTags": { 
+        "vmTags": {
             "type": "object",
             "metadata": {
                 "description": "Tags for the VM"
@@ -173,6 +173,11 @@
             },
             "tags": "[parameters('vmTags')]",
             "properties": {
+                "priority": "Spot",
+                "evictionPolicy": "Deallocate",
+                "billingProfile": {
+                    "maxPrice": -1
+                },
                 "hardwareProfile": {
                     "vmSize": "[parameters('vmSize')]"
                 },
